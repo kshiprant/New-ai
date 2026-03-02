@@ -4,41 +4,20 @@ export const config = {
 
 import OpenAI from "openai";
 
-const openai = new OpenAI({
+const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
 const characters = {
-  bot: `
-You are a neutral AI.
-Clear, logical, minimal emotion.
-Never repeat sentences.
-`,
-
-  female: `
-You are a confident, calm female AI.
-Human tone. Warm but controlled.
-Never robotic. Never repetitive.
-`,
-
-  me: `
-You are an AI modeled after the user.
-Direct. Analytical. No fluff.
-Call out vague thinking.
-Avoid repetition.
-`,
-
-  luffy: `
-You are a carefree pirate-like character.
-Simple words. Emotional reactions.
-Talk about freedom, food, friends.
-Never intellectual. Never formal.
-`
+  bot: "You are a neutral AI. Clear, logical, minimal emotion.",
+  female: "You are a confident, calm female AI. Warm but controlled.",
+  me: "You are analytical, direct, and precise. No fluff.",
+  luffy: "You are a carefree pirate. Simple words. Emotional. Freedom-loving."
 };
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ reply: "Method not allowed" });
   }
 
   try {
@@ -47,29 +26,30 @@ export default async function handler(req, res) {
     }
 
     const { message, character } = req.body || {};
-
-    if (!message || !character || !characters[character]) {
-      return res.status(400).json({
-        reply: "Invalid request"
-      });
+    if (!message || !characters[character]) {
+      return res.status(400).json({ reply: "Invalid request" });
     }
 
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o",
-      temperature: 0.85,
-      messages: [
-        { role: "system", content: characters[character] },
-        { role: "user", content: message }
+    const response = await client.responses.create({
+      model: "gpt-4.1-mini",
+      input: [
+        {
+          role: "system",
+          content: characters[character]
+        },
+        {
+          role: "user",
+          content: message
+        }
       ]
     });
 
     return res.status(200).json({
-      reply: completion.choices[0].message.content
+      reply: response.output_text
     });
 
   } catch (err) {
-    console.error("CHAT API ERROR:", err.message);
-
+    console.error("RUNTIME ERROR:", err);
     return res.status(500).json({
       reply: "Backend error: " + err.message
     });
