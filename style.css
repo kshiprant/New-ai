@@ -4,87 +4,109 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f4f8ff;
-  display: flex;
-  flex-direction: column;
+  background: #0b0b0b;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  color: #ffffff;
+}
+
+.app {
+  max-width: 420px;
   height: 100vh;
-}
-
-header {
-  padding: 10px;
-  background: #ffffff;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-select {
-  padding: 8px;
-  font-size: 16px;
-}
-
-#avatar {
-  width: 120px;
-  height: 120px;
-  margin: 16px auto;
-  border-radius: 50%;
-  animation: float 3s ease-in-out infinite;
-}
-
-.bot {
-  background: radial-gradient(circle, #cfd9ff, #6a7cff);
-}
-
-.female {
-  background: radial-gradient(circle, #ffd6e8, #ff6fae);
-}
-
-.me {
-  background: radial-gradient(circle, #d0ffd8, #2ecc71);
-}
-
-.luffy {
-  background: radial-gradient(circle, #ffe29f, #ff9f1c);
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-#chat {
-  flex: 1;
-  background: white;
-  margin: 0 10px 10px;
-  border-radius: 12px;
-  padding: 10px;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
 
-#messages {
-  flex: 1;
-  overflow-y: auto;
+/* HEADER */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
   font-size: 14px;
 }
 
-.message {
-  margin-bottom: 8px;
+.online {
+  color: #b6ff2e;
+  font-size: 12px;
 }
 
-.input-row {
+/* ORB */
+.orb-section {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+#avatar {
+  width: 220px;
+  height: 220px;
+  margin: auto;
+}
+
+.prompt {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* CHARACTER BAR */
+.character-bar {
+  padding: 0 16px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  background: #141414;
+  color: #fff;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+}
+
+/* CHAT */
+#chat {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.message {
+  background: #141414;
+  padding: 12px 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.message b {
+  color: #b6ff2e;
+}
+
+/* INPUT */
+.input-bar {
   display: flex;
-  gap: 6px;
+  padding: 12px;
+  gap: 10px;
+  background: #0b0b0b;
 }
 
 input {
   flex: 1;
-  padding: 10px;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  background: #141414;
+  color: white;
   font-size: 14px;
 }
 
-button {
-  padding: 10px 14px;
-  font-size: 14px;
+.send-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #b6ff2e;
+  color: black;
+  font-size: 18px;
 }
