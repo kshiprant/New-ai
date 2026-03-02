@@ -42,11 +42,11 @@ async function send() {
     });
 
     if (!res.ok) {
-      const errText = await res.text();
-      messages.innerHTML += `<div class="message"><b>System:</b> API Error</div>`;
-      console.error("API error:", errText);
-      return;
-    }
+  const errText = await res.text();
+  messages.innerHTML += `<div class="message"><b>System:</b> ${errText}</div>`;
+  console.error("API error:", errText);
+  return;
+}
 
     const data = await res.json();
 
