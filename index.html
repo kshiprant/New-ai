@@ -4,11 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Buddy</title>
-
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- Lottie -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
 
@@ -16,41 +12,30 @@
 
   <!-- HEADER -->
   <header class="top-bar">
-    <div class="menu">☰</div>
-    <div class="status">AI Buddy <span class="online">● Online</span></div>
-  </header>
-
-  <!-- AI ORB -->
-  <section class="orb-section">
-    <lottie-player
-      id="avatar"
-      autoplay
-      loop
-      src="https://assets.lottiefiles.com/packages/lf20_jtbfg2nb.json">
-    </lottie-player>
-    <p class="prompt">How may I help you today?</p>
-  </section>
-
-  <!-- CHARACTER SELECT -->
-  <div class="character-bar">
-    <select id="character" onchange="changeCharacter()">
+    <div class="title">AI Buddy</div>
+    <select id="character">
       <option value="bot">Bot</option>
       <option value="female">Female</option>
       <option value="me">Me</option>
       <option value="luffy">Pirate</option>
     </select>
-  </div>
+  </header>
 
   <!-- CHAT -->
-  <section id="chat">
+  <div id="chat">
     <div id="messages"></div>
-  </section>
+  </div>
 
-  <!-- INPUT BAR -->
+  <!-- INPUT -->
   <div class="input-bar">
     <input id="input" placeholder="Ask anything…" />
-    <button onclick="send()" class="send-btn">➤</button>
+    <button onclick="send()">➤</button>
   </div>
+
+  <!-- FOOTER -->
+  <footer class="credit">
+    Developed by <span>Kshiprant</span>
+  </footer>
 
 </div>
 
