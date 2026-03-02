@@ -1,3 +1,7 @@
+export const config = {
+  runtime: "nodejs"
+};
+
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -33,18 +37,20 @@ Never intellectual. Never formal.
 };
 
 export default async function handler(req, res) {
-  // ✅ Method guard (CRITICAL)
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error("OPENAI_API_KEY missing");
+    }
+
     const { message, character } = req.body || {};
 
-    // ✅ Input validation
     if (!message || !character || !characters[character]) {
       return res.status(400).json({
-        reply: "Invalid request."
+        reply: "Invalid request"
       });
     }
 
@@ -62,9 +68,10 @@ export default async function handler(req, res) {
     });
 
   } catch (err) {
-    console.error("API ERROR:", err);
+    console.error("CHAT API ERROR:", err.message);
+
     return res.status(500).json({
-      reply: "System error. Try again."
+      reply: "Backend error: " + err.message
     });
   }
 }
