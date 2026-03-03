@@ -1,74 +1,41 @@
+/* Basic body setup */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
   background: #0d0d0d;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
   height: 100vh;
-  padding-top: 20px;
   color: #0ff;
 }
 
-.chat-header {
-  width: 100%;
-  max-width: 400px;
-  background: #0ff;
-  color: #000;
-  text-align: center;
-  font-weight: bold;
-  font-size: 22px;
-  padding: 12px 0;
-  border-radius: 10px 10px 0 0;
-  margin-bottom: 5px;
-  box-shadow: 0 0 15px #0ff;
-}
-
+/* Chat container takes full height */
 .chat-container {
-  width: 100%;
-  max-width: 400px;
-  background: #111;
-  border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  flex: 1;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #111;
+  border-radius: 10px;
   box-shadow: 0 0 20px #0ff;
+  overflow: hidden;
 }
 
-.ai-animation {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 15px 0;
-}
-
-.ai-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #0ff;
-  box-shadow: 0 0 15px #0ff;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.7; }
-}
-
+/* Chat messages scrollable */
 .chat-box {
   flex: 1;
   padding: 10px;
-  height: 400px;
   overflow-y: auto;
-  background: #111;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
+/* Messages styling */
 .chat-box div {
   opacity: 0;
   animation: fadeIn 0.3s forwards;
-  margin: 5px 0;
   padding: 8px 12px;
   border-radius: 15px;
   max-width: 80%;
@@ -92,9 +59,13 @@ body {
   to { opacity: 1; }
 }
 
+/* Input area always at bottom */
 .input-area {
   display: flex;
+  align-items: center;
+  padding: 5px;
   border-top: 1px solid #0ff;
+  background: #111;
 }
 
 #user-input {
@@ -104,16 +75,19 @@ body {
   outline: none;
   background: #111;
   color: #0ff;
+  border-radius: 8px;
+  margin: 0 5px;
 }
 
 #send-btn {
-  width: 60px;
+  width: 50px;
+  height: 40px;
   background: #0ff;
   color: #000;
   border: none;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.2s;
+  border-radius: 8px;
 }
 
 #send-btn:hover {
@@ -121,24 +95,30 @@ body {
   box-shadow: 0 0 10px #0ff;
 }
 
-.chat-box::-webkit-scrollbar {
-  width: 8px;
+/* AI animation inside panel */
+.ai-animation {
+  margin-right: 5px;
 }
 
-.chat-box::-webkit-scrollbar-thumb {
+.ai-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   background: #0ff;
-  border-radius: 4px;
+  box-shadow: 0 0 10px #0ff;
+  animation: pulse 1.5s infinite;
 }
 
-.chat-box::-webkit-scrollbar-track {
-  background: #111;
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
+/* Footer at bottom of page */
 .footer {
-  width: 100%;
-  max-width: 400px;
   text-align: center;
-  margin-top: 10px;
-  color: #0ff;
   font-size: 12px;
+  color: #0ff;
+  padding: 5px 0;
 }
