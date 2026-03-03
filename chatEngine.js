@@ -1,6 +1,5 @@
 let chatData = [];
 
-// List all JSON files
 const jsonFiles = [
   'chat_part_01.json',
   'chat_part_02.json',
@@ -14,7 +13,7 @@ const jsonFiles = [
   'chat_part_10.json'
 ];
 
-// Load all JSONs
+// Load all JSON files
 Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())))
   .then(results => {
     chatData = results.flat();
@@ -22,12 +21,10 @@ Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())))
   })
   .catch(err => console.error('Failed to load chat JSON:', err));
 
-// Reply function
 function getReply(userMessage) {
   if (!chatData || chatData.length === 0) return "Loading AI data...";
 
   const msg = userMessage.toLowerCase().replace(/[^\w\s]/gi, '');
-
   const possibleMatches = chatData.filter(chat => msg.includes(chat.input.toLowerCase()));
 
   if (possibleMatches.length > 0) {
