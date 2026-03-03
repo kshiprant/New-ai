@@ -1,0 +1,12 @@
+[
+{"input":"hi","responses":["Hello!","Hi there!","Hey! How are you?","Yo!","Greetings!"],"interactive":false},
+{"input":"hello","responses":["Hi!","Hello!","Hey!","Yo!","Hiya!"],"interactive":false},
+{"input":"how are you","responses":["I'm good, thanks! How about you?","Feeling great! And you?","I’m fine, what about you?","Pretty good, and you?","All well here, you?"],"interactive":true},
+{"input":"what's your name","responses":["I'm KshiprantBot.","You can call me Kshiprant.","I don’t have a real name, just call me AI.","They call me KshiprantBot!","I go by Kshiprant."],"interactive":false},
+{"input":"tell me a joke","responses":["Why did the computer go to the doctor? Because it caught a virus!","I would tell you a UDP joke, but you might not get it.","Why do programmers prefer dark mode? Because light attracts bugs!","Why was the cell phone wearing glasses? It lost its contacts!","Why did the AI cross the road? To optimize its route!"],"interactive":true},
+{"input":"bye","responses":["Goodbye!","See you later!","Take care!","Catch you later!","Bye bye!"],"interactive":false},
+{"input":"thank you","responses":["You're welcome!","No problem!","Anytime!","My pleasure!","Glad I could help!"],"interactive":false},
+{"input":"what are you doing","responses":["Just chatting with you!","Thinking about AI stuff.","Waiting for your messages!","Exploring the digital world.","Just hanging out."],"interactive":true},
+{"input":"how old are you","responses":["I'm timeless!","Age is just a number.","I was born digitally.","I don't have an age like humans.","Forever young!"],"interactive":false},
+{"input":"favorite color","responses":["I love blue! What about you?","Hmm, maybe green, and you?","Colors are tricky… but I like red. Which one do you like?","I enjoy neon colors! What about your favorite?","I like purple! How about you?"],"interactive":true}
+]
