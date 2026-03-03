@@ -3,16 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Chat</title>
+  <title>My AI</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="chat-header">My AI</div>
+
   <div class="chat-container">
+    <div class="ai-animation">
+      <div class="ai-circle"></div>
+    </div>
+
     <div id="chat-box" class="chat-box"></div>
-    <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off"/>
-    <button id="send-btn">Send</button>
+
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off"/>
+      <button id="send-btn">Send</button>
+    </div>
   </div>
+
   <script src="chatEngine.js"></script>
-  <script src="main.js"></script>
+  <script src="script.jsb"></script>
 </body>
 </html>
