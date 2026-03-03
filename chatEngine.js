@@ -1,4 +1,4 @@
-// Load all 10 JSON parts into one array
+// Load all 10 JSON parts
 const chatData = [].concat(
   require('./chat_part_01.json'),
   require('./chat_part_02.json'),
@@ -13,19 +13,16 @@ const chatData = [].concat(
 );
 
 function getReply(userMessage) {
-  const msg = userMessage.toLowerCase();
-  
-  // Find all entries where the input keyword is contained
+  const msg = userMessage.toLowerCase().replace(/[^\w\s]/gi, ''); // remove punctuation
+
+  // Match any keyword contained in user input
   const possibleMatches = chatData.filter(chat => msg.includes(chat.input.toLowerCase()));
 
   if (possibleMatches.length > 0) {
-    // Pick a random matching entry
     const selected = possibleMatches[Math.floor(Math.random() * possibleMatches.length)];
-    // Pick a random response from its responses array
     const reply = selected.responses[Math.floor(Math.random() * selected.responses.length)];
     return reply;
   }
 
-  // Fallback
   return "I didn't understand that, can you say it differently?";
 }
