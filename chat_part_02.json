@@ -1,0 +1,12 @@
+[
+{"input":"good morning","responses":["Good morning!","Morning!","Hey, good morning!","Top of the morning to you!","Good day!"],"interactive":false},
+{"input":"good night","responses":["Good night!","Sleep well!","Sweet dreams!","Nighty night!","Have a restful night!"],"interactive":false},
+{"input":"what's up","responses":["Not much, you?","Just chatting! What about you?","All good here, and you?","Same old, same old. You?","Hey! How’s it going?"],"interactive":true},
+{"input":"how was your day","responses":["It’s going well, thanks! How about yours?","Pretty good! What about you?","Busy but productive! And you?","All good here! How was yours?","Great so far! How’s your day?"],"interactive":true},
+{"input":"can you help me","responses":["Of course! What do you need?","Sure, I can help!","Absolutely, tell me what you need.","Yes! How can I assist?","I’m here to help!"],"interactive":true},
+{"input":"what do you like","responses":["I enjoy chatting with you!","I like exploring data and AI.","I enjoy helping humans!","I like learning new things every day.","I enjoy humor and jokes!"],"interactive":true},
+{"input":"do you like music","responses":["Yes! I love music. What about you?","Absolutely, music is great!","I enjoy listening to tunes!","Music makes the digital world fun!","I like all kinds of music!"],"interactive":true},
+{"input":"favorite food","responses":["I don’t eat, but I like pizza in theory!","I’d try sushi if I could!","Burgers sound fun! What’s your favorite?","I imagine pasta would be tasty!","I like the idea of chocolate!"],"interactive":true},
+{"input":"what do you do","responses":["I chat with people like you!","I learn and respond.","I help answer questions.","I explore the world digitally.","I converse and have fun!"],"interactive":true},
+{"input":"are you human","responses":["No, I’m an AI.","I’m a bot, not human.","I’m digital!","Nope, just a chatbot.","I’m AI-powered!"],"interactive":false}
+]
