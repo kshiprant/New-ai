@@ -10,13 +10,12 @@ function appendMessage(sender, message) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Assuming chatEngine.js has getReply(userMessage)
 sendBtn.addEventListener('click', () => {
   const msg = userInput.value.trim();
   if (!msg) return;
   appendMessage('You', msg);
 
-  const reply = getReply(msg); // fixed call to getReply
+  const reply = getReply(msg); // Now works because JSON is loaded via fetch
   appendMessage('AI', reply);
 
   userInput.value = '';
