@@ -1,4 +1,4 @@
-/* Basic body setup */
+/* Make body full height */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
@@ -9,7 +9,7 @@ body {
   color: #0ff;
 }
 
-/* Chat container takes full height */
+/* Chat container fills screen and positions input at bottom */
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -20,54 +20,31 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 20px #0ff;
   overflow: hidden;
+  height: 100%; /* ensure full height */
 }
 
-/* Chat messages scrollable */
+/* Chat messages flex and scroll above input panel */
 .chat-box {
-  flex: 1;
+  flex: 1;               /* takes all available space */
   padding: 10px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 0;      /* no extra margin */
 }
 
-/* Messages styling */
-.chat-box div {
-  opacity: 0;
-  animation: fadeIn 0.3s forwards;
-  padding: 8px 12px;
-  border-radius: 15px;
-  max-width: 80%;
-}
-
-.chat-box div.You {
-  color: #000;
-  background: #0ff;
-  text-align: right;
-  margin-left: auto;
-}
-
-.chat-box div.AI {
-  color: #0ff;
-  background: #222;
-  text-align: left;
-  margin-right: auto;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Input area always at bottom */
+/* Input panel always at bottom */
 .input-area {
   display: flex;
   align-items: center;
   padding: 5px;
   border-top: 1px solid #0ff;
   background: #111;
+  position: relative;
 }
 
+/* User input field */
 #user-input {
   flex: 1;
   padding: 10px;
@@ -76,9 +53,10 @@ body {
   background: #111;
   color: #0ff;
   border-radius: 8px;
-  margin: 0 5px;
+  margin-right: 5px;
 }
 
+/* Send button */
 #send-btn {
   width: 50px;
   height: 40px;
@@ -95,14 +73,16 @@ body {
   box-shadow: 0 0 10px #0ff;
 }
 
-/* AI animation inside panel */
+/* AI animation inside input panel */
 .ai-animation {
-  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
 }
 
 .ai-circle {
-  width: 35px;
-  height: 35px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: #0ff;
   box-shadow: 0 0 10px #0ff;
@@ -113,12 +93,4 @@ body {
   0% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(1); opacity: 0.7; }
-}
-
-/* Footer at bottom of page */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: #0ff;
-  padding: 5px 0;
 }
