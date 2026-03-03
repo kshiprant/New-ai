@@ -1,21 +1,33 @@
-// Load all 10 JSON parts
-const chatData = [].concat(
-  require('./chat_part_01.json'),
-  require('./chat_part_02.json'),
-  require('./chat_part_03.json'),
-  require('./chat_part_04.json'),
-  require('./chat_part_05.json'),
-  require('./chat_part_06.json'),
-  require('./chat_part_07.json'),
-  require('./chat_part_08.json'),
-  require('./chat_part_09.json'),
-  require('./chat_part_10.json')
-);
+let chatData = [];
 
+// List all JSON files
+const jsonFiles = [
+  'chat_part_01.json',
+  'chat_part_02.json',
+  'chat_part_03.json',
+  'chat_part_04.json',
+  'chat_part_05.json',
+  'chat_part_06.json',
+  'chat_part_07.json',
+  'chat_part_08.json',
+  'chat_part_09.json',
+  'chat_part_10.json'
+];
+
+// Load all JSONs
+Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())))
+  .then(results => {
+    chatData = results.flat();
+    console.log('All chat data loaded:', chatData.length);
+  })
+  .catch(err => console.error('Failed to load chat JSON:', err));
+
+// Reply function
 function getReply(userMessage) {
-  const msg = userMessage.toLowerCase().replace(/[^\w\s]/gi, ''); // remove punctuation
+  if (!chatData || chatData.length === 0) return "Loading AI data...";
 
-  // Match any keyword contained in user input
+  const msg = userMessage.toLowerCase().replace(/[^\w\s]/gi, '');
+
   const possibleMatches = chatData.filter(chat => msg.includes(chat.input.toLowerCase()));
 
   if (possibleMatches.length > 0) {
