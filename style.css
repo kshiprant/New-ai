@@ -1,37 +1,97 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: #121212;
-  color: #fff;
+  background: #f5f6fa;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
+  padding-top: 20px;
+}
+
+.chat-header {
+  width: 100%;
+  max-width: 400px;
+  background: #0af;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 12px 0;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 5px;
+  box-shadow: 0 0 10px #0af;
 }
 
 .chat-container {
   width: 100%;
-  max-width: 500px;
-  background: #1e1e1e;
-  border-radius: 10px;
-  overflow: hidden;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.ai-animation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  background: #e0e0ff;
+}
+
+.ai-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0af;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
 .chat-box {
   flex: 1;
-  padding: 15px;
+  padding: 10px;
+  height: 400px; /* adjust to fit phone screen */
   overflow-y: auto;
-  height: 400px;
+  background: #f5f6fa;
+}
+
+.chat-box div.You {
+  color: #000;
+  background: #e0e0ff;
+  padding: 6px 10px;
+  border-radius: 15px 15px 0 15px;
+  margin: 5px 0;
+  text-align: right;
+}
+
+.chat-box div.AI {
+  color: #fff;
+  background: #0af;
+  padding: 6px 10px;
+  border-radius: 15px 15px 15px 0;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
 }
 
 #user-input {
+  flex: 1;
   padding: 10px;
   border: none;
   outline: none;
-  width: 80%;
-  background: #2c2c2c;
-  color: #fff;
 }
 
 #send-btn {
@@ -40,5 +100,5 @@ body {
   background: #0af;
   color: #000;
   cursor: pointer;
-  width: 20%;
+  font-weight: bold;
 }
